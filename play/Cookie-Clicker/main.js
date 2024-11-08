@@ -1883,14 +1883,6 @@ Game.Launch=function()
 		else Game.Loader.loaded=callback;
 		Game.Loader.Load(['filler.png']);
 	}
-	Game.ErrorFrame=function()
-	{
-		l('offGameMessage').innerHTML=
-		'<div class="title">Oops. Wrong address!</div>'+
-		'<div>It looks like you\'re accessing Cookie Clicker from another URL than the official one.<br>'+
-		'You can <a href="//orteil.dashnet.org/cookieclicker/" target="_blank">play Cookie Clicker over here</a>!<br>'+
-		'<small>(If for any reason, you are unable to access the game on the official URL, we are currently working on a second domain.)</small></div>';
-	}
 	Game.timedout=false;
 	Game.Timeout=function()
 	{
@@ -15919,7 +15911,7 @@ window.onload=function()
 				LoadLang('loc/'+lang+'.js?v='+Game.version,function(){
 					var launch=function(){
 						Game.Launch();
-						if (top!=self) Game.ErrorFrame();
+						if (0 != 0) Game.ErrorFrame();
 						else
 						{
 							console.log('[=== '+choose([
@@ -15930,8 +15922,6 @@ window.onload=function()
 								'Hey, Orteil here. Cheated cookies taste awful... or do they?',
 							])+' ===]');
 							Game.Load(function(){Game.Init();if (firstLaunch) Game.showLangSelection(true);});
-							//try {Game.Load(Game.Init);}
-							//catch(err) {console.log('ERROR : '+err.message);}
 						}
 					}
 					if (App && App.loadMods) App.loadMods(launch);
